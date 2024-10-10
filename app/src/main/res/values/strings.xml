@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GalleryApp</string>
+    <string name="title_photos">Photos</string>
+    <string name="title_albums">Albums</string>
+    <string name="photos">Photos</string>
+    <string name="image_photo">image_photo</string>
+    <string name="phone">Phone</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="sign_in">Sign In</string>
+    <string name="if_you_already_have_an_account">If you already have an account,</string>
+    <string name="if_do_not_have_an_account">If do not have an account</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="logout">LogOut</string>
+    <string name="back">Back</string>
+</resources>
