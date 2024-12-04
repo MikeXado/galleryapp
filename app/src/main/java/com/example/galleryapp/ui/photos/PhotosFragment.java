@@ -27,11 +27,13 @@ import java.util.ArrayList;
 public class PhotosFragment extends Fragment {
 
     private FragmentPhotosBinding binding;
+    private PhotosViewModel photosViewModel;
+
 
     @SuppressLint("NotifyDataSetChanged")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        PhotosViewModel photosViewModel = new ViewModelProvider(this).get(PhotosViewModel.class);
+        photosViewModel = new ViewModelProvider(this).get(PhotosViewModel.class);
         binding = FragmentPhotosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         SharedPreferences sharedPrefs = requireActivity().getSharedPreferences("AuthPrefs", Context.MODE_PRIVATE);
@@ -76,6 +78,12 @@ public class PhotosFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        photosViewModel.loadPhotos(requireActivity());
     }
 }
 

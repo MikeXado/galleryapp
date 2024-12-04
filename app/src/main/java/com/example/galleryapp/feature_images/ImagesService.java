@@ -35,25 +35,28 @@ public class ImagesService {
     }
 
     public void requestStoragePermission(Activity activity) {
+        // Request permissions for reading images, audio, and video
+        String[] permissions = {
+                Manifest.permission.READ_MEDIA_IMAGES,
+        };
 
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_IMAGES)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            // If permission is not granted, request the permission
-            ActivityCompat.requestPermissions(
-                    activity,
-                    new String[]{Manifest.permission.READ_MEDIA_IMAGES},
-                    100
-            );
+        for (String permission : permissions) {
+            if (ContextCompat.checkSelfPermission(activity, permission) != PackageManager.PERMISSION_GRANTED) {
+                // Request the permission if it is not granted
+                ActivityCompat.requestPermissions(
+                        activity,
+                        new String[]{permission},
+                        100  // This is the request code
+                );
+            }
         }
     }
 
-    // Optional: Check if permission is granted
+    // Optional: Check if specific permission is granted
     public boolean isStoragePermissionGranted(Activity activity) {
-        return ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_IMAGES)
-                == PackageManager.PERMISSION_GRANTED;
+        // You can check each permission as needed
+        return ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED;
     }
-
 
     public List<ImageDto> getPhotosFromGallery(Activity activity) {
         List<ImageDto> images = new ArrayList<>();

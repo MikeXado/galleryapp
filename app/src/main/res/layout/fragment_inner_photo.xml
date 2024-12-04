@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.photos.InnerPhotoFragment"
-    >
+    tools:context=".ui.photos.InnerPhotoFragment">
 
+    <!-- Full Image View -->
     <ImageView
         android:id="@+id/full_image_view"
         android:layout_width="match_parent"
@@ -16,15 +14,18 @@
         android:scaleType="fitCenter"
         android:contentDescription="@string/image_photo" />
 
+    <!-- LinearLayout for Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
         android:layout_marginBottom="100dp"
+        android:orientation="horizontal"
         android:background="@android:color/white"
-        android:orientation="horizontal">
+        android:padding="8dp"
+        android:gravity="center_vertical">
 
-        <!-- Back button -->
+        <!-- Back Button (aligned to the left) -->
         <ImageView
             android:id="@+id/back_button"
             android:layout_width="68dp"
@@ -32,7 +33,28 @@
             android:padding="16dp"
             android:src="@drawable/baseline_arrow_back_24"
             android:contentDescription="@string/back"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:layout_gravity="start" />
+
+        <!-- Space between the buttons (fills the space between the two buttons) -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <!-- Delete Button (Text-based with red background and white text) -->
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="16dp"
+            android:padding="16dp"
+            android:text="Delete"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_red_dark"
+            android:gravity="center_vertical"
+            android:contentDescription="delete photo" />
     </LinearLayout>
 
-</FrameLayout >
+</FrameLayout>

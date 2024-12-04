@@ -47,6 +47,8 @@ public class PhotosViewModel extends ViewModel {
         return photoGroups;
     }
 
+
+
     public LiveData<String> getTitle() {
         return title;
     }
